@@ -103,7 +103,7 @@ export function CheckoutDialog({
         savingsLabel: formatCurrency(totals.savingsCents),
       };
 
-      await fetch('http://localhost:3001/api/orders', {
+      await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -32,7 +32,7 @@ export function OrdersHistoryDialog({ isOpen, onClose }: OrdersHistoryDialogProp
 
     setLoading(true);
     setError(null);
-    fetch('http://localhost:3001/api/orders')
+    fetch('/api/orders')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load orders');
         return res.json();
