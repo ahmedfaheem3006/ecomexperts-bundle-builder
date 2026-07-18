@@ -1,0 +1,14 @@
+.saved,
+.error {
+  margin: 0;
+  font-size: var(--font-size-12);
+  text-align: center;
+}
+
+.saved {
+  color: var(--color-success);
+}
+
+.error {
+  color: var(--color-danger);
+}

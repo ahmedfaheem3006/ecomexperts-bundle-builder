@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(var(--product-card-height), auto);
+  gap: var(--space-15);
+}
+
+.grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: 360px;
+  justify-self: center;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+    width: auto;
+  }
+}

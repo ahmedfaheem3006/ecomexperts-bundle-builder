@@ -1,6 +1,14 @@
 .root {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
   font-family: var(--app-font-family);
+  background: var(--color-background);
+}
+
+.status {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: var(--space-20);
+  font-family: var(--app-font-family);
+  text-align: center;
 }

@@ -1,0 +1,153 @@
+:root {
+  /* Source frames */
+  --frame-desktop-width: 1440px;
+  --frame-desktop-height: 1077px;
+  --builder-desktop-x: 122px;
+  --builder-desktop-y: 49.360107421875px;
+  --builder-desktop-width: 768px;
+  --builder-desktop-height: 978.0003051757812px;
+  --review-desktop-x: 919px;
+  --review-desktop-y: 49.4000244140625px;
+  --review-desktop-width: 399px;
+  --review-content-width: 390px;
+  --review-content-height: 823px;
+  --desktop-column-gap: 29px;
+  --camera-step-height: 695px;
+  --accordion-header-height: 66.33343505859375px;
+  --collapsed-step-height: 81.33343505859375px;
+  --camera-panel-height: 608.6665649414062px;
+  --product-card-width: 361.5px;
+  --product-card-height: 160px;
+  --frame-mobile-width: 390px;
+  --frame-mobile-height: 1252px;
+  --mobile-title-height: 86px;
+  --mobile-steps-height: 320px;
+  --mobile-step-height: 70.25px;
+  --mobile-accordion-header-height: 55.25px;
+  --mobile-review-height: 846px;
+  --mobile-review-content-height: 816px;
+
+  /* Fonts: local commercial font files were not supplied. */
+  --font-family-gilroy: "Gilroy", "Avenir Next", Avenir, "Century Gothic", sans-serif;
+  --font-family-tt-norms: "TT Norms Pro", "Avenir Next", Avenir, sans-serif;
+  --app-font-family: var(--font-family-gilroy);
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Type sizes */
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-17: 17px;
+  --font-size-18: 18px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-mobile-title: 31.875px;
+  --line-height-compact: 1;
+  --line-height-title: 1.1;
+  --line-height-link: 1.2;
+  --line-height-body: 1.3;
+  --line-height-16: 16px;
+  --line-height-20: 20px;
+  --line-height-24: 24px;
+  --line-height-32: 32px;
+
+  /* Letter spacing observed in the frames */
+  --tracking-neg-600: -0.6px;
+  --tracking-neg-064: -0.064px;
+  --tracking-neg-056: -0.056px;
+  --tracking-neg-032: -0.032px;
+  --tracking-neg-030: -0.03px;
+  --tracking-neg-028: -0.028px;
+  --tracking-neg-016: -0.016px;
+  --tracking-045: 0.045px;
+  --tracking-060: 0.06px;
+  --tracking-070: 0.07px;
+  --tracking-360: 0.36px;
+  --tracking-600: 0.6px;
+  --tracking-1600: 1.6px;
+
+  /* Palette */
+  --color-white: #ffffff;
+  --color-background: #ffffff;
+  --color-black: #000000;
+  --color-ink: #0b0d10;
+  --color-heading: #1f1f1f;
+  --color-heading-75: rgba(31, 31, 31, 0.75);
+  --color-copy: #484848;
+  --color-price: #575757;
+  --color-muted: #6f7882;
+  --color-subtle: #a8b2bd;
+  --color-border: #ced6de;
+  --color-border-light: #e6ebf0;
+  --color-border-swatch: #cccccc;
+  --color-surface-blue: #edf4ff;
+  --color-control: #f0f4f7;
+  --color-control-disabled: #f1f1f2;
+  --color-brand: #4e2fd2;
+  --color-brand-70: rgba(78, 47, 210, 0.7);
+  --color-success: #0aa288;
+  --color-success-surface: rgba(29, 240, 187, 0.04);
+  --color-transparent-white: rgba(255, 255, 255, 0.04);
+  --color-danger: #d8392b;
+  --color-link: #0000ee;
+
+  /* Spacing values present in the source nodes */
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-3: 3px;
+  --space-4: 4px;
+  --space-5: 5px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-11: 11px;
+  --space-12: 12px;
+  --space-13: 13px;
+  --space-15: 15px;
+  --space-16: 16px;
+  --space-19: 19px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-31: 31px;
+  --space-46: 46px;
+
+  /* Borders and radii */
+  --border-width-hairline: 0.5px;
+  --border-width-default: 1px;
+  --border-width-selected: 2px;
+  --radius-2: 2px;
+  --radius-3: 3px;
+  --radius-4: 4px;
+  --radius-5: 5px;
+  --radius-7: 7px;
+  --radius-10: 10px;
+}
+
+[data-theme="dark"] {
+  --color-white: #1b1e23;
+  --color-background: #0f1115;
+  --color-black: #ffffff;
+  --color-ink: #f8fafc;
+  --color-heading: #e2e8f0;
+  --color-heading-75: rgba(226, 232, 240, 0.75);
+  --color-copy: #94a3b8;
+  --color-price: #cbd5e1;
+  --color-muted: #64748b;
+  --color-subtle: #475569;
+  --color-border: #384554;
+  --color-border-light: #2e3b4a;
+  --color-border-swatch: #475569;
+  --color-surface-blue: #252d3a;
+  --color-control: #1e293b;
+  --color-control-disabled: #1e293b;
+  --color-brand: #6366f1;
+  --color-brand-70: rgba(99, 102, 241, 0.7);
+  --color-success: #10b981;
+  --color-success-surface: rgba(16, 185, 129, 0.1);
+  --color-danger: #ef4444;
+  --color-link: #93c5fd;
+}

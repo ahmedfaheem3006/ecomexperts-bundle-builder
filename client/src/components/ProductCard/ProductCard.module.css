@@ -1,0 +1,120 @@
+.card {
+  min-height: var(--product-card-height);
+  height: auto;
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: var(--space-13);
+  min-width: 0;
+  padding: var(--space-11);
+  border: var(--border-width-selected) solid transparent;
+  border-radius: var(--radius-10);
+  background: var(--color-white);
+  box-shadow: 0 1px 3px rgba(11, 13, 16, 0.02);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11, 13, 16, 0.06);
+  border-color: var(--color-brand-20);
+}
+
+.selected {
+  border-color: var(--color-brand-70);
+}
+
+.selected:hover {
+  border-color: var(--color-brand-70);
+  box-shadow: 0 6px 16px rgba(78, 47, 210, 0.08);
+}
+
+.imageColumn {
+  position: relative;
+  min-height: 112px;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.discount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-10);
+  background: var(--color-brand);
+  color: var(--color-white);
+  font-size: var(--font-size-12);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.content h3 {
+  margin: 0 0 var(--space-3);
+  color: var(--color-heading);
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-16);
+}
+
+.content p {
+  margin: 0;
+  color: var(--color-heading-75);
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-body);
+}
+
+.content a {
+  color: var(--color-link);
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-10);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-price);
+  font-size: var(--font-size-16);
+  text-align: right;
+}
+
+.price del {
+  color: var(--color-danger);
+}
+
+@media (max-width: 560px) {
+  .card {
+    height: auto;
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 340px) {
+  .card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: var(--space-8);
+    padding: var(--space-8);
+  }
+
+  .footer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .price {
+    text-align: left;
+  }
+}
