@@ -38,6 +38,7 @@ The project is structured as a monorepo consisting of:
 
 ```text
 .
+├── api/                    Vercel serverless function entry point
 ├── client/                 React Frontend application
 │   ├── src/api/            API client
 │   ├── src/assets/         Local product images, variants, and icons
@@ -51,8 +52,7 @@ The project is structured as a monorepo consisting of:
 │       ├── data/           Authoritative bundle and orders JSON files
 │       ├── schemas/        Zod schemas for schema validation
 │       └── app.ts          Express app definitions and endpoints
-├── docs/                   Design audits, asset inventory, and QA reports
-└── scripts/                Development helpers and comparison utilities
+└── vercel.json             Vercel monorepo configuration
 ```
 
 ## Getting Started
