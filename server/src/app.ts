@@ -15,8 +15,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ordersFilePath = path.join(__dirname, 'data', 'orders.json');
 
-if (!fs.existsSync(ordersFilePath)) {
-  fs.writeFileSync(ordersFilePath, JSON.stringify([], null, 2));
+// In-memory fallback store for read-only filesystems (like Vercel serverless)
+let ordersInMemory: unknown[] = [];
+
+try {
+  if (fs.existsSync(ordersFilePath)) {
+    const ordersData = fs.readFileSync(ordersFilePath, 'utf8');
+    ordersInMemory = JSON.parse(ordersData) as unknown[];
+  } else {
+    fs.writeFileSync(ordersFilePath, JSON.stringify([], null, 2));
+  }
+} catch (e) {
+  console.warn('Orders database fallback to in-memory store:', e);
 }
 
 export function createApp() {
@@ -47,17 +57,19 @@ export function createApp() {
         return;
       }
       
-      const ordersData = fs.readFileSync(ordersFilePath, 'utf8');
-      const orders = JSON.parse(ordersData) as unknown[];
-      
       const orderWithId = {
         id: `order_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
         createdAt: new Date().toISOString(),
         ...newOrder
       };
       
-      orders.push(orderWithId);
-      fs.writeFileSync(ordersFilePath, JSON.stringify(orders, null, 2));
+      ordersInMemory.push(orderWithId);
+      
+      try {
+        fs.writeFileSync(ordersFilePath, JSON.stringify(ordersInMemory, null, 2));
+      } catch (writeError) {
+        console.warn('Could not write order to disk, kept in memory:', writeError);
+      }
       
       response.status(201).json(orderWithId);
     } catch (error) {
@@ -68,9 +80,15 @@ export function createApp() {
 
   app.get('/api/orders', (_request, response) => {
     try {
-      const ordersData = fs.readFileSync(ordersFilePath, 'utf8');
-      const orders = JSON.parse(ordersData) as unknown[];
-      response.status(200).json(orders);
+      try {
+        if (fs.existsSync(ordersFilePath)) {
+          const ordersData = fs.readFileSync(ordersFilePath, 'utf8');
+          ordersInMemory = JSON.parse(ordersData) as unknown[];
+        }
+      } catch (readError) {
+        console.warn('Could not read orders from disk, using in-memory store:', readError);
+      }
+      response.status(200).json(ordersInMemory);
     } catch (error) {
       console.error('Failed to read orders:', error);
       response.status(500).json({ error: 'Internal server error' });
