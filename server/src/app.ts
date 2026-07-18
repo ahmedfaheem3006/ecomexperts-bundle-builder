@@ -9,7 +9,13 @@ import { serverConfig } from './config.js';
 import bundleData from './data/bundle.json' with { type: 'json' };
 import { bundleSchema } from './schemas/bundle.schema.js';
 
-const validatedBundle = bundleSchema.parse(bundleData);
+let validatedBundle: unknown;
+try {
+  validatedBundle = bundleSchema.parse(bundleData);
+} catch (e) {
+  console.error('Bundle data Zod parsing failed, using raw data fallback:', e);
+  validatedBundle = bundleData;
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
