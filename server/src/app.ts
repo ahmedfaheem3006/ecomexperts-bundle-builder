@@ -6,7 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import { serverConfig } from './config.js';
-import bundleData from './data/bundle.json';
+import bundleData from './data/bundle.json' with { type: 'json' };
 import { bundleSchema } from './schemas/bundle.schema.js';
 
 let validatedBundle: unknown;
