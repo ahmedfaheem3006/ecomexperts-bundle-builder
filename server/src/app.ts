@@ -5,9 +5,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { serverConfig } from './config.js';
-import bundleData from './data/bundle.json' with { type: 'json' };
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const bundleData = require('./data/bundle.json') as unknown;
+
 import { bundleSchema } from './schemas/bundle.schema.js';
+import { serverConfig } from './config.js';
 
 let validatedBundle: unknown;
 try {
