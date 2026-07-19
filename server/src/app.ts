@@ -5,10 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const bundleData = require('./data/bundle.json') as unknown;
-
+import { bundleData } from './data/bundle.data.js';
 import { bundleSchema } from './schemas/bundle.schema.js';
 import { serverConfig } from './config.js';
 
